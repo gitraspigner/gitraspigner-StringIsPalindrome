@@ -12,6 +12,23 @@ public class Palindrome {
      * @return true if str is a palindrome, false otherwise.
      */
     public boolean pal(String str){
-        return false;
+        int stringLength = str.length();
+        int start = 0;
+        int mid = stringLength/2;
+        int end = stringLength-1;
+        char[] charArray = str.toCharArray();
+
+        if (stringLength == 2) {
+            return (charArray[start] == charArray[end]); // if the 2 chars are the same, is a palindrome
+        } else if (stringLength == 1) {
+            return true; // 1 char, is a palindrome
+        } else {
+            for (   ; start < mid; start++,end--) {
+                if (charArray[start] != charArray[end]) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
